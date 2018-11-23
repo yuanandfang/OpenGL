@@ -1,9 +1,7 @@
 # OpenGL 基本用法：
  
    一个简单的OpenGL程序如下：
-   
-   （ 注意，如果需要编译并运行，需要正确安装GLUT，安装方法如上所述）
-
+  
       #include <GL/glut.h>
       void myDisplay(void)
       {
@@ -23,15 +21,15 @@
            return 0;
       }
       
- * 该程序的作用是在一个黑色的窗口中央画一个白色的矩形。下面对各行语句进行说明。
+ 该程序的作用是在一个黑色的窗口中央画一个白色的矩形。下面对各行语句进行说明。
  
-     首先，需要包含头文件#include <GL/glut.h>，这是GLUT的头文件。
+   *  首先，需要包含头文件#include <GL/glut.h>，这是GLUT的头文件。
         
-     本来OpenGL程序一般还要包含<GL/gl.h>和<GL/glu.h>，但GLUT的头文件中已经自动将这两个文件包含了，不必再次包含。
+   本来OpenGL程序一般还要包含<GL/gl.h>和<GL/glu.h>，但GLUT的头文件中已经自动将这两个文件包含了，不必再次包含。
        
-    * 然后看main函数。
+   * 然后看main函数。
      
-int main(int argc, char *argv[])，这个是带命令行参数的main函数，各位应该见过吧？没见过的同志们请多翻翻书，等弄明白了再往下看。
+int main(int argc, char *argv[])，这个是带命令行参数的main函数
 
 注意main函数中的各语句，除了最后的return之外，其余全部以glut开头。这种以glut开头的函数都是GLUT工具包所提供的函数，下面对用到的几个函数进行介绍。
 
@@ -47,21 +45,21 @@ GLUT_SINGLE表示使用单缓冲，与之对应的还有GLUT_DOUBLE（使用双�
 
 5、glutCreateWindow，根据前面设置的信息创建窗口。参数将被作为窗口的标题。
 
-注意：窗口被创建后，并不立即显示到屏幕上。需要调用glutMainLoop才能看到窗口。
+  注意：窗口被创建后，并不立即显示到屏幕上。需要调用glutMainLoop才能看到窗口。
 
 6、glutDisplayFunc，设置一个函数，当需要进行画图时，这个函数就会被调用。
 
 7、glutMainLoop，进行一个消息循环。
 
-   *在glutDisplayFunc函数中，我们设置了“当需要画图时，请调用myDisplay函数”。于是myDisplay函数就用来画图。
+   * 在glutDisplayFunc函数中，我们设置了“当需要画图时，请调用myDisplay函数”。于是myDisplay函数就用来画图。
    
    观察myDisplay中的三个函数调用，发现它们都以gl开头。这种以gl开头的函数都是OpenGL的标准函数，下面对用到的函数进行介绍。
    
-1、glClear，清除。GL_COLOR_BUFFER_BIT表示清除颜色，glClear函数还可以清除其它的东西，但这里不作介绍。
+   1、glClear，清除。GL_COLOR_BUFFER_BIT表示清除颜色，glClear函数还可以清除其它的东西，但这里不作介绍。
 
-2、glRectf，画一个矩形。四个参数分别表示了位于对角线上的两个点的横、纵坐标。
+   2、glRectf，画一个矩形。四个参数分别表示了位于对角线上的两个点的横、纵坐标。
 
-3、glFlush，保证前面的OpenGL命令立即执行（而不是让它们在缓冲区中等待）。其作用跟fflush(stdout)类似。
+   3、glFlush，保证前面的OpenGL命令立即执行（而不是让它们在缓冲区中等待）。其作用跟fflush(stdout)类似。
 
 
 # OpenGL工具库（OpenGL Utility ToolKit）
